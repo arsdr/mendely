@@ -290,18 +290,22 @@
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <layout delimiter=", ">
-      <group delimiter=" ">
-        <names variable="author"/>
-        <group prefix=" [" suffix="]" delimiter=", ">
-          <text variable="citation-number"/>
-          <text macro="citation-locator"/>
-        </group>
-      </group>
-    </layout>
-  </citation>
-  <bibliography entry-spacing="0" second-field-align="flush">
-    <layout>
+ <layout delimiter=" ">
+  <group delimiter=" ">
+    <text prefix="[" suffix="]" variable="citation-number"/>
+    <names variable="author">
+      <name form="long" and="text" delimiter=", " initialize-with=". "/>
+      <label form="short" prefix=" "/>
+      <substitute>
+        <text macro="editor"/>
+        <text macro="translator"/>
+      </substitute>
+      <et-al term="et-al" font-style="normal"/>
+      <et-al-min>2</et-al-min>
+      <et-al-use-first>1</et-al-use-first>
+    </names>
+  </group>
+</layout>
       <text variable="citation-number" prefix="[" suffix="]"/>
       <text macro="author" suffix=", "/>
       <choose>
